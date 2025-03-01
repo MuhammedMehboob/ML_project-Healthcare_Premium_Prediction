@@ -45,47 +45,47 @@ def preprocess_input(input_dict):
 
     # Manually assign values for each categorical input based on input_dict
     for key, value in input_dict.items():
-        if key == 'Gender' and value == 'Male':
+        if key == 'gender' and value == 'Male':
             df['gender_Male'] = 1
-        elif key == 'Region':
+        elif key == 'region':
             if value == 'Northwest':
                 df['region_Northwest'] = 1
             elif value == 'Southeast':
                 df['region_Southeast'] = 1
             elif value == 'Southwest':
                 df['region_Southwest'] = 1
-        elif key == 'Marital Status' and value == 'Unmarried':
+        elif key == 'marital_status' and value == 'Unmarried':
             df['marital_status_Unmarried'] = 1
-        elif key == 'BMI Category':
+        elif key == 'bmi_category':
             if value == 'Obesity':
                 df['bmi_category_Obesity'] = 1
             elif value == 'Overweight':
                 df['bmi_category_Overweight'] = 1
             elif value == 'Underweight':
                 df['bmi_category_Underweight'] = 1
-        elif key == 'Smoking Status':
+        elif key == 'smoking_status':
             if value == 'Occasional':
                 df['smoking_status_Occasional'] = 1
             elif value == 'Regular':
                 df['smoking_status_Regular'] = 1
-        elif key == 'Employment Status':
+        elif key == 'employment_status':
             if value == 'Salaried':
-                df['employment_status_Salaried'] = 1
+                df['employment_status_Salaried'] = 1                
             elif value == 'Self-Employed':
                 df['employment_status_Self-Employed'] = 1
-        elif key == 'Insurance Plan':  # Correct key usage with case sensitivity
+        elif key == 'insurance_plan':  # Correct key usage with case sensitivity
             df['insurance_plan'] = insurance_plan_encoding.get(value, 1)
-        elif key == 'Age':  # Correct key usage with case sensitivity
+        elif key == 'age':  # Correct key usage with case sensitivity
             df['age'] = value
-        elif key == 'Number of Dependants':  # Correct key usage with case sensitivity
+        elif key == 'number_of_dependants':  # Correct key usage with case sensitivity
             df['number_of_dependants'] = value
-        elif key == 'Income in Lakhs':  # Correct key usage with case sensitivity
+        elif key == 'income_lakhs':  # Correct key usage with case sensitivity
             df['income_lakhs'] = value
-        elif key == "Genetical Risk":
+        elif key == "genetical_risk":
             df['genetical_risk'] = value
 
     # Assuming the 'normalized_risk_score' needs to be calculated based on the 'age'
-    df['normalized_risk_score'] = calculate_normalized_risk(input_dict['Medical history'])
+    df['normalized_risk_score'] = calculate_normalized_risk(input_dict['medical_history'])
     df = handle_scaling(input_dict['age'], df)
 
     return df

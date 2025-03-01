@@ -44,7 +44,7 @@ with col10:
 with col11:
     insurance_plan = st.selectbox("Insurance Plan", ["Bronze", "Silver", "Gold"])
 with col12:
-    genetical_risk = st.number_input("Genetical Risk", min_value=0.0, max_value=1.0, step=0.1, value=0.5)
+    genetical_risk = st.number_input("Genetical Risk", min_value=0, max_value=5, step=1)
 
 # Storing Inputs in a Dictionary
 input_dict = {
@@ -57,7 +57,7 @@ input_dict = {
     "bmi_category": bmi_category,
     "smoking_status": smoking_status,
     "employment_status": employment_status,
-    "Medical history": medical_history,
+    "medical_history": medical_history,
     "insurance_plan": insurance_plan,
     "genetical_risk": genetical_risk
 }
